@@ -22,8 +22,48 @@ def get_constellation(month, day) -> str:
     水瓶座	1月22日～2月19日
     雙魚座	2月20日～3月20日
     """
-    
-    return "一個星座"
+    '''
+    牡羊座 0321 ~ 0420
+    金牛座 0421 ~ 0520
+    雙子座 0521 ~ 0620
+    巨蟹座 0621 ~ 0722
+    獅子座 0723 ~ 0822
+    處女座 0823 ~ 0922
+    天秤座 0923 ~ 1022
+    天蠍座 1023 ~ 1122
+    射手座 1123 ~ 1222
+    魔羯座>1223  <0121    else
+    水瓶座 0122 ~ 0219
+    雙魚座 0220 ~ 0320
+    '''
+
+    # convert to date string
+    date = "%02d%02d" % (month, day)
+
+    if date >= "0321" and date <= "0420":
+        return "牡羊座"
+    elif date >= "0421" and date <= "0520":
+        return "金牛座"
+    elif date >= "0521" and date <= "0620":
+        return "雙子座"
+    elif date >= "0621" and date <= "0722":
+        return "巨蟹座"
+    elif date >= "0723" and date <= "0822":
+        return "獅子座"
+    elif date >= "0823" and date <= "0922":
+        return "處女座"
+    elif date >= "0923" and date <= "1022":
+        return "天秤座"
+    elif date >= "1023" and date <= "1122":
+        return "天蠍座"
+    elif date >= "1123" and date <= "1222":
+        return "射手座"
+    elif date >= "0122" and date <= "0219":
+        return "水瓶座"
+    elif date >= "0220" and date <= "0320":
+        return "雙魚座"
+    else:
+        return "魔羯座"
 
 
 def get_each_number(number: int) -> []:
@@ -33,7 +73,9 @@ def get_each_number(number: int) -> []:
     return [1,9,2,0]
     """
 
-    result = [1,2,3]
+    result = [1, 2, 3]
+
+    result = [int(x) for x in list(str(number))]
 
     return result
 
@@ -46,5 +88,13 @@ def get_life_number(year=1900, month=1, day=1) -> int:
     """
     life_num = 10
 
-    return life_num
+    nums = get_each_number(year) + get_each_number(month) + get_each_number(
+        day)
 
+    # until single digit
+    while life_num > 9:
+        life_num = sum(nums)
+
+        nums = get_each_number(life_num)
+
+    return life_num
