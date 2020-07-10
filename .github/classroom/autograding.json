@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Test Get_Each_Number",
+      "setup": "sudo -H pip3 install pytest;",
+      "run": "pytest -k get_each_number",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "Test Life Number",
+      "setup": "",
+      "run": "pytest -k life_number",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "Test Constellation",
+      "setup": "",
+      "run": "pytest -k constellation",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 10
+    },
+    {
+      "name": "Formal Test",
+      "setup": "wget https://raw.githubusercontent.com/kylingithub/Python_UnitTest_Astrologer/formal_test/test_Astrologer_formal.py",
+      "run": "pytest",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 20
+    }
+  ]
+}
